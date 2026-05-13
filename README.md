@@ -1,6 +1,6 @@
 <div align="center">
   <!-- 建议将这里的 src 替换为你游戏的真实 Logo 或主视觉图链接 -->
-  <img src="C:\Users\djnio\Desktop\my_game\logo\DreamHoser.png" width="150" alt="Minecraft Brawl Logo">
+  <img src="logo/DreamHoser.png" width="150" alt="Minecraft Brawl Logo">
 
   <h1>🎮 Minecraft Brawl (我的世界 - 乱斗)</h1>
 
@@ -47,8 +47,9 @@
 *(💡 建议：将你在 itch.io 上的实际游戏对战截图链接替换到这里)*
 
 <div align="center">
-  <img src="C:\Users\djnio\Desktop\my_game\logo\5月12日.gif" width="45%" alt="Gameplay 1">
-  <img src="C:\Users\djnio\Desktop\my_game\logo\5月12日(1).gif" width="45%" alt="Gameplay 2">
+  <!-- 同样替换成相对路径 -->
+  <img src="logo/5月12日.gif" width="45%" alt="Gameplay 1">
+  <img src="logo/5月12日(1).gif" width="45%" alt="Gameplay 2">
 </div>
 
 ---

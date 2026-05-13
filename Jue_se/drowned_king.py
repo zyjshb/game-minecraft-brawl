@@ -518,23 +518,39 @@ class Trident:
         if not self.active:
             return
         if self.state == "flying":
-            self.fly_frame_index = (self.fly_frame_index + 0.2) % max(1, len(self.fly_frames))
-            img = self.fly_frames[int(self.fly_frame_index) % len(self.fly_frames)] if self.fly_frames else self.image
-            angle = self._draw_angle()
+            dir_angle = self._draw_angle()
             positions = self.trail_positions[-self.trail_max:]
+            # 飞行翻滚序列帧
+            if self._spin_frames:
+                self.fly_frame_index = (self.fly_frame_index + 0.3) % len(self._spin_frames)
+                spin_img = self._spin_frames[int(self.fly_frame_index)]
+            else:
+                self.fly_frame_index = (self.fly_frame_index + 0.2) % max(1, len(self.fly_frames))
+                spin_img = self.fly_frames[int(self.fly_frame_index) % len(self.fly_frames)] if self.fly_frames else self.image
+            # 光效叠加层
+            glow_img = None
+            if self.fly_frames:
+                glow_img = self.fly_frames[int(self.fly_frame_index * 1.5) % len(self.fly_frames)]
+            # 拖尾
             for idx, (tx, ty) in enumerate(positions):
-                if not img:
+                if not spin_img:
                     continue
-                alpha = int(255 * (idx + 1) / (len(positions) + 1) * 0.55)
-                trail_img = img.copy()
+                alpha = int(255 * (idx + 1) / (len(positions) + 1) * 0.35)
+                trail_img = spin_img.copy()
                 trail_img.set_alpha(alpha)
-                rotated = pygame.transform.rotate(trail_img, angle)
+                rotated = pygame.transform.rotate(trail_img, dir_angle)
                 surface.blit(rotated, rotated.get_rect(center=(int(tx), int(ty))))
-            if img:
-                rotated = pygame.transform.rotate(img, angle)
+            # 主体
+            if spin_img:
+                rotated = pygame.transform.rotate(spin_img, dir_angle)
                 surface.blit(rotated, rotated.get_rect(center=(int(self.x), int(self.y))))
             else:
                 self._draw_vector_fallback(surface)
+            # 光效层
+            if glow_img and spin_img:
+                glow_rotated = pygame.transform.rotate(glow_img, dir_angle)
+                glow_rotated.set_alpha(120)
+                surface.blit(glow_rotated, glow_rotated.get_rect(center=(int(self.x), int(self.y))))
             return
         if self.state == "pinned":
             img = self.idle_frames[int(self.idle_frame_index) % len(self.idle_frames)] if self.idle_frames else self.image
