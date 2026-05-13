@@ -422,6 +422,7 @@ class Trident:
         self.fly_frames = _load_frames(_asset_path("vfx_fly"), scale=(48, 48))
         self.idle_frames = _load_frames(_asset_path("vfx_idle"), scale=(50, 50))
         self.ult_frames = _load_frames(_asset_path("vfx_ult"), scale=(88, 88))
+        self._build_spin_frames()
         self.sfx_pinned = _load_sound("trident_explode.mp3")
         self.sfx_drop = _load_sound_group(["trident_drop_1.mp3", "trident_drop_2.mp3", "trident_drop_3.mp3"])
         self.sfx_pierce = _load_sound_group(["trident_pierce_1.mp3", "trident_pierce_2.mp3", "trident_pierce_3.mp3"])
@@ -566,6 +567,15 @@ class Trident:
 
     def _draw_angle(self):
         return -math.degrees(math.atan2(self.vy, self.vx)) - 45
+
+    def _build_spin_frames(self):
+        """用基础三叉戟图预渲染旋转序列帧，产生翻滚动画效果"""
+        self._spin_frames = []
+        if not self.image:
+            return
+        for deg in range(0, 360, 30):
+            rotated = pygame.transform.rotate(self.image, deg)
+            self._spin_frames.append(rotated)
 
     def _sync_rect(self):
         self.rect.center = (int(self.x), int(self.y))
