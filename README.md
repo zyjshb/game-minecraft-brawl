@@ -1,6 +1,6 @@
 <div align="center">
   <!-- 建议将这里的 src 替换为你游戏的真实 Logo 或主视觉图链接 -->
-  <img src="https://via.placeholder.com/150x150.png?text=Minecraft+Brawl+Logo" width="150" alt="Minecraft Brawl Logo">
+  <img src="D:\海梅\beifen\DreamHoser.png" width="150" alt="Minecraft Brawl Logo">
 
   <h1>🎮 Minecraft Brawl (我的世界 - 乱斗)</h1>
 
@@ -37,7 +37,7 @@
 
 *   **🧱 严谨体素美学:** 拒绝妥协的次世代 2D 像素表达，严格遵循 Minecraft 风格的方块物理与视觉反馈。
 *   **⚔️ 流畅竞技体验:** 专为乱斗设计的底层逻辑，打击感扎实，支持高强度的本地对战。
-*   **🐧 全平台兼容:** 无论是 Windows 玩家，还是 Arch Linux 等极客开发者，都能获得一致的流畅体验。
+*   **🐧 全平台兼容:** 无论是 Windows 玩家，还是 Linux 等极客开发者，都能获得一致的流畅体验。
 *   **🪶 轻量级引擎:** 基于纯粹的 Pygame 架构打造，代码结构清晰，极易上手进行二次开发与 Mod 制作。
 
 ---
@@ -47,8 +47,8 @@
 *(💡 建议：将你在 itch.io 上的实际游戏对战截图链接替换到这里)*
 
 <div align="center">
-  <img src="这里填入你的截图链接1.png" width="45%" alt="Gameplay 1">
-  <img src="这里填入你的截图链接2.png" width="45%" alt="Gameplay 2">
+  <img src="C:\Users\djnio\Videos\5月12日.gif" width="45%" alt="Gameplay 1">
+  <img src="C:\Users\djnio\Videos\5月12日(1).gif" width="45%" alt="Gameplay 2">
 </div>
 
 ---
